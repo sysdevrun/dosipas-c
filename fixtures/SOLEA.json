@@ -1,0 +1,144 @@
+{
+ "name": "SOLEA",
+ "dosipasTsVersion": "4.1.0",
+ "hex": "815565dff8e76000380824687099c04b390101cec142a8864195c6a5264b13249250915fc4040400404080494a6b305cd2fb8c2db1b572cdc2dcd91be45ad1c3164b5c6664c16b072dd8e4c395a32c6d3100014121c1831311931b2b116b2999a32969a32b2b216b09a18b196991c9c19333333189ab1993109500124204006ec90be41900fac0240100607a1a31fe5d80801e103120566f796167652031204865757265000004154324671e81808384154324671e81808384154324671e82018104154324671e8201811081fcaced2780ddfbb1a882f7fc5ca8a452a2dacc95e9abc048beade76918facdde050aa3f895a398228110806017d045a5144200d029ee92860fba45728e8b5cd561375660482b34af855f3401102860f8d89d2f47093220fc20acf2d98c46a82f399aa2495c6f1b4a20ed53942d8246890d88b30279b92ec7a7a79ef87caedbd7668dfd79e5153ff842318220110126f9ec96c791e8580ab939971ba9670bcfb2d40b00941a0dc37cbb97b33bd0a01100a4e94a879c92ff5381fa024759d6d0bb24e6e911455a98ce5ece06aceae7b018",
+ "ticket": {
+  "format": "U2",
+  "level2SignedData": {
+   "level1Data": {
+    "securityProviderNum": 3703,
+    "keyId": 7,
+    "dataSequence": [
+     {
+      "dataFormat": "FCB3",
+      "data": "7202039d8285510c832b8d4a4c96264924a122bf880808008081009294d660b9a5f7185b636ae59b85b9b237c8b5a3862c96b8ccc982d60e5bb1c9872b4658da62000282438306262326365622d653334652d346565642d613431632d32393832666666313563326212a0024840800dd9217c83201f580480200c0f43463fcbb01003c206240acdef2c2ceca40624090caeae4ca0000",
+      "decoded": {
+       "issuingDetail": {
+        "securityProviderNum": 3703,
+        "issuingYear": 2026,
+        "issuingDay": 43,
+        "issuingTime": 1091,
+        "specimen": false,
+        "securePaperTicket": false,
+        "activated": true,
+        "currency": "EUR",
+        "currencyFract": 2,
+        "extension": {
+         "extensionId": "+FRII1",
+         "extensionData": "49250915fc4040400404080494a6b305cd2fb8c2db1b572cdc2dcd91be45ad1c3164b5c6664c16b072dd8e4c395a32c6d310"
+        },
+        "intercodeIssuing": {
+         "intercodeVersion": 1,
+         "intercodeInstanciation": 1,
+         "networkId": "250915",
+         "productRetailer": {
+          "retailChannel": "mobileApplication",
+          "retailGeneratorId": 1,
+          "retailServerId": 1,
+          "retailerId": 1,
+          "retailPointId": 2
+         },
+         "extensionId": "+FRII1"
+        }
+       },
+       "travelerDetail": {},
+       "transportDocument": [
+        {
+         "token": {
+          "token": "38306262326365622d653334652d346565642d613431632d323938326666663135633262"
+         },
+         "ticket": {
+          "key": "openTicket",
+          "value": {
+           "referenceNum": 7751775,
+           "productOwnerNum": 4197,
+           "productIdNum": 1003,
+           "returnIncluded": false,
+           "stationCodeTable": "stationUIC",
+           "validRegion": [
+            {
+             "key": "zones",
+             "value": {
+              "stationCodeTable": "stationUIC",
+              "city": 250065
+             }
+            }
+           ],
+           "validFromDay": 0,
+           "validFromTime": 1151,
+           "validUntilDay": 0,
+           "validUntilTime": 1211,
+           "classCode": "second",
+           "carrierNum": [
+            31
+           ],
+           "infoText": "1 Voyage 1 Heure"
+          }
+         }
+        }
+       ],
+       "controlDetail": {
+        "identificationByIdCard": false,
+        "identificationByPassportId": false,
+        "passportValidationRequired": false,
+        "onlineValidationRequired": false,
+        "ageCheckRequired": false,
+        "reductionCardCheckRequired": false
+       }
+      }
+     }
+    ],
+    "level1KeyAlg": "1.2.840.10045.3.1.7",
+    "level2KeyAlg": "1.2.840.10045.3.1.7",
+    "level1SigningAlg": "1.2.840.10045.4.3.2",
+    "level2SigningAlg": "1.2.840.10045.4.3.2",
+    "level2PublicKey": "03f959da4f01bbf7635105eff8b95148a545b5992bd35780917d5bced231f59bbc",
+    "endOfValidityYear": 2026,
+    "endOfValidityDay": 43,
+    "endOfValidityTime": 1151,
+    "validityDuration": 300
+   },
+   "level1Signature": "3045022100c02fa08b4a288401a053dd250c1f748ae51d16b9aac26eacc09056695f0abe68022050c1f1b13a5e8e126441f84159e5b3188d505e73354492b8de369441daa7285b",
+   "level2Data": {
+    "dataFormat": "FDC1",
+    "data": "604f3725d8f4f4f3df0f95db7aecd1bfaf3ca2a7ff08",
+    "decoded": {
+     "dynamicContentMobileAppId": "fr.cityway.mulhouse",
+     "dynamicContentTimeStamp": {
+      "day": 43,
+      "time": 65505
+     }
+    }
+   }
+  },
+  "level2Signature": "3044022024df3d92d8f23d0b01572732e3752ce179f65a8160128341b86f9772f6677a140220149d2950f3925fea703f4048eb3ada17649cdd2228ab5319cbd9c0d59d5cf603"
+ },
+ "issuingTime": 1770919860,
+ "endOfValidityTime": 1770923460,
+ "dynamicContentTime": 1770919905,
+ "openTicketValidityWindow": {
+  "validFrom": 1770923460,
+  "validUntil": 1770927060
+ },
+ "signedBytes": {
+  "level1": "bff1cec000701048d0e13380967202039d8285510c832b8d4a4c96264924a122bf880808008081009294d660b9a5f7185b636ae59b85b9b237c8b5a3862c96b8ccc982d60e5bb1c9872b4658da62000282438306262326365622d653334652d346565642d613431632d32393832666666313563326212a0024840800dd9217c83201f580480200c0f43463fcbb01003c206240acdef2c2ceca40624090caeae4ca0000082a8648ce3d030107082a8648ce3d030107082a8648ce3d040302082a8648ce3d0403022103f959da4f01bbf7635105eff8b95148a545b5992bd35780917d5bced231f59bbc0a1547f12b",
+  "level2": "effc73b0001c041234384ce0259c8080e760a1544320cae35293258992492848afe202020020204024a535982e697dc616d8dab966e16e6c8df22d68e18b25ae333260b58396ec7261cad19636988000a090e0c18988c98d9588b594ccd194b4d1959590b584d0c58cb4c8e4e0c9999998c4d58cc9884a8009210200376485f20c807d60120080303d0d18ff2ec0400f0818902b37bcb0b3b29018902432bab9328000020aa192338f40c041c20aa192338f40c041c20aa192338f4100c0820aa192338f4100c08840fe567693c06efdd8d4417bfe2e545229516d664af4d5e0245f56f3b48c7d66ef028551fc4ad1cc11408840300be822d28a21006814f7494307dd22b94745ae6ab09bab3024159a57c2af9a008814307c6c4e97a38499107e1056796cc62354179ccd5124ae378da51076a9ca16c1234486c459813cdc9763d3d3cf7c3e576debb346febcf28a9ffc20"
+ },
+ "level2Verification": {
+  "valid": true,
+  "error": null,
+  "algorithm": "ECDSA P-256 with SHA-256"
+ },
+ "level1Verification": {
+  "valid": true,
+  "error": null,
+  "algorithm": "ECDSA P-256 with SHA-256",
+  "publicKey": "3082014c3081f3a003020102020900b6a0d17b9b7231d0300a06082a8648ce3d040302302c310d300b06035504030c0443423244310e300c06035504070c055061726973310b3009060355040613024652301e170d3236303231313233303030305a170d3237303831313232303030305a302c310d300b06035504030c0443423244310e300c06035504070c055061726973310b30090603550406130246523059301306072a8648ce3d020106082a8648ce3d03010703420004306e43059ee827496e94b9c3f408c557edfc31c2066dad8d136c302f50b082f2307b8d43b67a54d37fc5cba8f29c795190e450086a90b9f3d497da1b008f5282300a06082a8648ce3d0403020348003045022007618613db3299b3bbf8b1a90631efd422f5f7c8f5df5f4b610cc21e21505f8b022100db5a10d954fca21251e71fa2b0ab07a3612b7ca379c5a4d3e3e19f472fa79b12"
+ },
+ "level1WithForeignKey": {
+  "valid": false,
+  "error": "Level 1 signature verification failed (ECDSA P-256 with SHA-256)",
+  "algorithm": "ECDSA P-256 with SHA-256",
+  "publicKey": "308201b330820158a0030201020206019c2429ffa4300a06082a8648ce3d0403023060311a301806035504030c11313138372d30303031302028534e434629310b300906035504061302465231173015060355040a0c0e534e434620566f79616765757273310c300a06035504080c03494446310e300c06035504070c055061726973301e170d3236303431343232303030305a170d3238303431343231353935395a3060311a301806035504030c11313138372d30303031302028534e434629310b300906035504061302465231173015060355040a0c0e534e434620566f79616765757273310c300a06035504080c03494446310e300c06035504070c0550617269733059301306072a8648ce3d020106082a8648ce3d030107034200045e2467e345e4ec94ceff72c76cd505abf0031ac557a57a252ef087fd21bd2957841fef5a408f727473623f19f3c31e746a0c75d7245eac5ea307e6dae1b3538d300a06082a8648ce3d04030203490030460221009294856c0d7ca1c286eca70aec07beefbd499779fbb68909275f1f9485f8284b022100c0b00eb6a69f9d1777880a2174fc1df0ea8eb1b2e148ecd9f1a0cd131250c38a"
+ }
+}

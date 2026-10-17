@@ -1,0 +1,13 @@
+## ESP-IDF component manifest (IDF Component Manager)
+version: "0.1.0"
+description: Decode and verify DOSIPAS tickets (UIC barcodes with Intercode 6 extensions). Table-driven ASN.1 UPER decoder generated from the dosipas-ts 4.1.0 schemas, caller-provided arena, mbedTLS ECDSA verification.
+url: https://github.com/sysdevrun/dosipas-c
+repository: https://github.com/sysdevrun/dosipas-c.git
+license: MIT
+tags:
+  - uic
+  - barcode
+  - dosipas
+  - asn1
+dependencies:
+  idf: ">=4.4"

@@ -1,0 +1,91 @@
+{
+ "name": "CAR_JAUNE_1",
+ "dosipasTsVersion": "4.1.0",
+ "hex": "0155653070249af39c00004041234384ccf48008053c916106571a94992c410449418240411a0004040804a34560c583060c183060c1830610a2b5ac1007d2458029c6c2950b954b8810d2881454802de349d18c1100881553f6fe450f64e6059fa4965ae274c80830fd75cbc9cf91fe5bd14f50a168d9c0880e2c92d7783a5508f7dddea443095cb30526554246094760d5211bd2aacd949f00",
+ "ticket": {
+  "format": "U2",
+  "level2SignedData": {
+   "level1Data": {
+    "securityProviderIA5": "IWN8",
+    "keyId": 1,
+    "dataSequence": [
+     {
+      "dataFormat": "FCB3",
+      "data": "2002014f24584195c6a5264b1041125060901046800101020128d1583160c183060c183060c18428ad6b0401f491600a71b0a542e552e20434a2051520",
+      "decoded": {
+       "issuingDetail": {
+        "issuingYear": 2026,
+        "issuingDay": 243,
+        "issuingTime": 556,
+        "specimen": false,
+        "securePaperTicket": false,
+        "activated": true,
+        "currency": "EUR",
+        "currencyFract": 2,
+        "extension": {
+         "extensionId": "+FRII1",
+         "extensionData": "11250609"
+        },
+        "intercodeIssuing": {
+         "intercodeVersion": 2,
+         "intercodeInstanciation": 1,
+         "networkId": "250609",
+         "extensionId": "+FRII1"
+        }
+       },
+       "transportDocument": [
+        {
+         "ticket": {
+          "key": "openTicket",
+          "value": {
+           "referenceIA5": "FE0100000000000BE5",
+           "productOwnerNum": 22025,
+           "productIdNum": 1001,
+           "returnIncluded": false,
+           "stationCodeTable": "stationUIC",
+           "validFromDay": 0,
+           "validFromTime": 556,
+           "validUntilDay": 0,
+           "classCode": "second",
+           "carrierNum": [
+            10012
+           ],
+           "infoText": "T.U. CJ QR"
+          }
+         }
+        }
+       ]
+      }
+     }
+    ],
+    "endOfValidityYear": 2027,
+    "endOfValidityDay": 242,
+    "endOfValidityTime": 1319
+   },
+   "level1Signature": "30440220554fdbf9143d9398167e92596b89d32020c3f5d72f273e47f96f453d4285a367022038b24b5de0e95423df777a910c2572cc1499550918251d8354846f4aab36527c"
+  }
+ },
+ "issuingTime": 1788167760,
+ "endOfValidityTime": 1819663140,
+ "dynamicContentTime": null,
+ "openTicketValidityWindow": {
+  "validFrom": 1788167760,
+  "validUntil": 1788220740
+ },
+ "signedBytes": {
+  "level1": "60e04935e7380000808246870999e900100a7922c20cae3529325882089283048082340008081009468ac18b060c183060c183060c21456b58200fa48b00538d852a172a971021a51028a9005bc69380",
+  "level2": "9838124d79ce0000202091a1c2667a4004029e48b0832b8d4a4c96208224a0c120208d000202040251a2b062c183060c183060c18308515ad60803e922c014e3614a85caa5c40869440a2a4016f1a4e8c60880440aa9fb7f2287b27302cfd24b2d713a6404187ebae5e4e7c8ff2de8a7a850b46ce0440716496bbc1d2a847beeef522184ae5982932aa12304a3b06a908de95566ca4f80"
+ },
+ "level2Verification": {
+  "valid": false,
+  "error": "Missing level 2 signature",
+  "algorithm": null
+ },
+ "level1Verification": null,
+ "level1WithForeignKey": {
+  "valid": false,
+  "error": "Missing level 1 signing algorithm: the barcode has no level1SigningAlg OID and no signingAlg was configured.",
+  "algorithm": null,
+  "publicKey": "308201b330820158a0030201020206019c2429ffa4300a06082a8648ce3d0403023060311a301806035504030c11313138372d30303031302028534e434629310b300906035504061302465231173015060355040a0c0e534e434620566f79616765757273310c300a06035504080c03494446310e300c06035504070c055061726973301e170d3236303431343232303030305a170d3238303431343231353935395a3060311a301806035504030c11313138372d30303031302028534e434629310b300906035504061302465231173015060355040a0c0e534e434620566f79616765757273310c300a06035504080c03494446310e300c06035504070c0550617269733059301306072a8648ce3d020106082a8648ce3d030107034200045e2467e345e4ec94ceff72c76cd505abf0031ac557a57a252ef087fd21bd2957841fef5a408f727473623f19f3c31e746a0c75d7245eac5ea307e6dae1b3538d300a06082a8648ce3d04030203490030460221009294856c0d7ca1c286eca70aec07beefbd499779fbb68909275f1f9485f8284b022100c0b00eb6a69f9d1777880a2174fc1df0ea8eb1b2e148ecd9f1a0cd131250c38a"
+ }
+}

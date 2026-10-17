@@ -1,0 +1,5 @@
+-Isrc
+-Ihost/unity
+-Itest/test_dosipas
+-Wall
+-Wextra

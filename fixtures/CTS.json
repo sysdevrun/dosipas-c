@@ -1,0 +1,159 @@
+{
+ "name": "CTS",
+ "dosipasTsVersion": "4.1.0",
+ "hex": "815565dff8e76000380824687099c04fb90101cec142a8944195c6a5264b13249250915fc0048100004080494a6b305ce6fb96edb2b9c2c9aadc9859385ad32b972b5cb964e16e170cb2e4ccd333572c9980014121a9b189a191b1b32169b9a9a9c969a333230969c9931b216b3321c9c9a199a9c9818b21b89500124224806ec929042400590024010064a012321a6102006a00020030010008000350531311548814d2535413114801022214000004154324671e81808384154324671e81808384154324671e82018104154324671e8201811081479ea31897b4f48c0807462750e9fdb93688c1388ba7dd2036ecbf044e226cb9050aa43095a4182301108044ba579cec8a293c2d908fa4f6171b181595b9f61dccfae6dd2f8dfae4f3e5b90110807a3419bd5b3be394d21db00e46f98f864e4c91df2b88d673904a1e0fccd951a58246890d88c302b9b92ec7d39aee7d3961e78b7f5e59d775cfbc5507c802318220110300b057de0e2b8cdf149e66f41156ac0d0ee7ab099057aed947996a7db796f3201102ee60c4eb0157abe4db761b005f01f13a7ffc6e7b75986515deb3484d3cc1b600",
+ "ticket": {
+  "format": "U2",
+  "level2SignedData": {
+   "level1Data": {
+    "securityProviderNum": 3703,
+    "keyId": 7,
+    "dataSequence": [
+     {
+      "dataFormat": "FCB3",
+      "data": "7202039d82855128832b8d4a4c96264924a122bf800902000081009294d660b9cdf72ddb6573859355b930b270b5a6572e56b972c9c2dc2e1965c999a666ae5933000282435363134323636642d373535392d346664612d393263642d66643939343335393031643712a0024844900dd9252084800b200480200c940246434c20400d4000400600200100006a0a62622a91029a4a6a8262290020444280000",
+      "decoded": {
+       "issuingDetail": {
+        "securityProviderNum": 3703,
+        "issuingYear": 2026,
+        "issuingDay": 43,
+        "issuingTime": 1098,
+        "specimen": false,
+        "securePaperTicket": false,
+        "activated": true,
+        "currency": "EUR",
+        "currencyFract": 2,
+        "extension": {
+         "extensionId": "+FRII1",
+         "extensionData": "49250915fc0048100004080494a6b305ce6fb96edb2b9c2c9aadc9859385ad32b972b5cb964e16e170cb2e4ccd333572c998"
+        },
+        "intercodeIssuing": {
+         "intercodeVersion": 1,
+         "intercodeInstanciation": 1,
+         "networkId": "250915",
+         "productRetailer": {
+          "retailChannel": "smsTicket",
+          "retailGeneratorId": 1,
+          "retailServerId": 32,
+          "retailerId": 1024,
+          "retailPointId": 2
+         },
+         "extensionId": "+FRII1"
+        }
+       },
+       "travelerDetail": {},
+       "transportDocument": [
+        {
+         "token": {
+          "token": "35363134323636642d373535392d346664612d393263642d666439393433353930316437"
+         },
+         "ticket": {
+          "key": "openTicket",
+          "value": {
+           "referenceNum": 7752008,
+           "productOwnerNum": 4241,
+           "productIdNum": 356,
+           "returnIncluded": false,
+           "stationCodeTable": "stationUIC",
+           "validRegion": [
+            {
+             "key": "zones",
+             "value": {
+              "stationCodeTable": "stationUIC",
+              "city": 2424977
+             }
+            }
+           ],
+           "validFromDay": 0,
+           "validFromTime": 1158,
+           "validUntilDay": 0,
+           "validUntilTime": 1218,
+           "classCode": "second",
+           "carrierNum": [
+            107,
+            2,
+            13,
+            33
+           ],
+           "tariffs": [
+            {
+             "numberOfPassengers": 1,
+             "restrictedToCountryOfResidence": false
+            }
+           ],
+           "infoText": "ALLER SIMPLE ",
+           "includedTransportType": [
+            1,
+            2,
+            4,
+            5
+           ]
+          }
+         }
+        }
+       ],
+       "controlDetail": {
+        "identificationByIdCard": false,
+        "identificationByPassportId": false,
+        "passportValidationRequired": false,
+        "onlineValidationRequired": false,
+        "ageCheckRequired": false,
+        "reductionCardCheckRequired": false
+       }
+      }
+     }
+    ],
+    "level1KeyAlg": "1.2.840.10045.3.1.7",
+    "level2KeyAlg": "1.2.840.10045.3.1.7",
+    "level1SigningAlg": "1.2.840.10045.4.3.2",
+    "level2SigningAlg": "1.2.840.10045.4.3.2",
+    "level2PublicKey": "028f3d46312f69e918100e8c4ea1d3fb726d118271174fba406dd97e089c44d972",
+    "endOfValidityYear": 2026,
+    "endOfValidityDay": 43,
+    "endOfValidityTime": 1158,
+    "validityDuration": 300
+   },
+   "level1Signature": "30460221008974af39d91452785b211f49ec2e36302b2b73ec3b99f5cdba5f1bf5c9e7cb72022100f468337ab677c729a43b601c8df31f0c9c9923be5711ace720943c1f99b2a34b",
+   "level2Data": {
+    "dataFormat": "FDC1",
+    "data": "60573725d8fa735dcfa72c3cf16febcb3aeeb9f78aa0f900",
+    "decoded": {
+     "dynamicContentMobileAppId": "fr.cts.strasbourg.ugo",
+     "dynamicContentTimeStamp": {
+      "day": 43,
+      "time": 67528
+     }
+    }
+   }
+  },
+  "level2Signature": "3044022060160afbc1c5719be293ccde822ad581a1dcf561320af5db28f32d4fb6f2de6402205dcc189d602af57c9b6ec3600be03e274fff8dcf6eb30ca2bbd66909a79836c0"
+ },
+ "issuingTime": 1770920280,
+ "endOfValidityTime": 1770923880,
+ "dynamicContentTime": 1770921928,
+ "openTicketValidityWindow": {
+  "validFrom": 1770923880,
+  "validUntil": 1770927480
+ },
+ "signedBytes": {
+  "level1": "bff1cec000701048d0e133809f7202039d82855128832b8d4a4c96264924a122bf800902000081009294d660b9cdf72ddb6573859355b930b270b5a6572e56b972c9c2dc2e1965c999a666ae5933000282435363134323636642d373535392d346664612d393263642d66643939343335393031643712a0024844900dd9252084800b200480200c940246434c20400d4000400600200100006a0a62622a91029a4a6a8262290020444280000082a8648ce3d030107082a8648ce3d030107082a8648ce3d040302082a8648ce3d04030221028f3d46312f69e918100e8c4ea1d3fb726d118271174fba406dd97e089c44d9720a1548612b",
+  "level2": "effc73b0001c041234384ce027dc8080e760a1544a20cae35293258992492848afe002408000204024a535982e737dcb76d95ce164d56e4c2c9c2d6995cb95ae5cb270b70b865972666999ab964cc000a090d4d8c4d0c8d8d990b4dcd4d4e4b4d1999184b4e4c98d90b59990e4e4d0ccd4e4c0c590dc4a80092112403764948212002c80120080325009190d30810035000100180080040001a8298988aa440a6929aa0988a40081110a0000020aa192338f40c041c20aa192338f40c041c20aa192338f4100c0820aa192338f4100c08840a3cf518c4bda7a460403a313a874fedc9b44609c45d3ee901b765f822711365c828552184ad20c11808840225d2bce7645149e16c847d27b0b8d8c0acadcfb0ee67d736e97c6fd7279f2dc8088403d1a0cdead9df1ca690ed807237cc7c3272648ef95c46b39c8250f07e66ca8d2c1234486c461815cdc9763e9cd773e9cb0f3c5bfaf2cebbae7de2a83e400"
+ },
+ "level2Verification": {
+  "valid": true,
+  "error": null,
+  "algorithm": "ECDSA P-256 with SHA-256"
+ },
+ "level1Verification": {
+  "valid": true,
+  "error": null,
+  "algorithm": "ECDSA P-256 with SHA-256",
+  "publicKey": "3082014c3081f3a003020102020900b6a0d17b9b7231d0300a06082a8648ce3d040302302c310d300b06035504030c0443423244310e300c06035504070c055061726973310b3009060355040613024652301e170d3236303231313233303030305a170d3237303831313232303030305a302c310d300b06035504030c0443423244310e300c06035504070c055061726973310b30090603550406130246523059301306072a8648ce3d020106082a8648ce3d03010703420004306e43059ee827496e94b9c3f408c557edfc31c2066dad8d136c302f50b082f2307b8d43b67a54d37fc5cba8f29c795190e450086a90b9f3d497da1b008f5282300a06082a8648ce3d0403020348003045022007618613db3299b3bbf8b1a90631efd422f5f7c8f5df5f4b610cc21e21505f8b022100db5a10d954fca21251e71fa2b0ab07a3612b7ca379c5a4d3e3e19f472fa79b12"
+ },
+ "level1WithForeignKey": {
+  "valid": false,
+  "error": "Level 1 signature verification failed (ECDSA P-256 with SHA-256)",
+  "algorithm": "ECDSA P-256 with SHA-256",
+  "publicKey": "308201b330820158a0030201020206019c2429ffa4300a06082a8648ce3d0403023060311a301806035504030c11313138372d30303031302028534e434629310b300906035504061302465231173015060355040a0c0e534e434620566f79616765757273310c300a06035504080c03494446310e300c06035504070c055061726973301e170d3236303431343232303030305a170d3238303431343231353935395a3060311a301806035504030c11313138372d30303031302028534e434629310b300906035504061302465231173015060355040a0c0e534e434620566f79616765757273310c300a06035504080c03494446310e300c06035504070c0550617269733059301306072a8648ce3d020106082a8648ce3d030107034200045e2467e345e4ec94ceff72c76cd505abf0031ac557a57a252ef087fd21bd2957841fef5a408f727473623f19f3c31e746a0c75d7245eac5ea307e6dae1b3538d300a06082a8648ce3d04030203490030460221009294856c0d7ca1c286eca70aec07beefbd499779fbb68909275f1f9485f8284b022100c0b00eb6a69f9d1777880a2174fc1df0ea8eb1b2e148ecd9f1a0cd131250c38a"
+ }
+}

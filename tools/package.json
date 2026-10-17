@@ -1,0 +1,9 @@
+{
+  "name": "dosipas-c-tools",
+  "private": true,
+  "type": "module",
+  "description": "Node scripts that generate the schema tables and golden files for dosipas-c",
+  "dependencies": {
+    "dosipas-ts": "4.1.0"
+  }
+}

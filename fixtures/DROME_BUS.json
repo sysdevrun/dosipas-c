@@ -1,0 +1,126 @@
+{
+ "name": "DROME_BUS",
+ "dosipasTsVersion": "4.1.0",
+ "hex": "815565dff941f000180824687099af31010283e142d5044195c6a5264b10849250502280800c04015040014a8d18752dee0d0d2d8ca1290cad8d8cac4ded2c806fc537f010448d092100015ab899ec73ce1d786df46ad6d58d4a6c7373aeabf8600001a00001a00af99b00801904154324671e81808384154324671e81808384154324671e82018104154324671e8201811081c6f9f75e57ee93d89e29e75e789f3ffa322106c09799f2d529db4543c09c5b8a050b94103ba3182201100eb3da7a651013976f0744750693b392fc8e1483340344752720c6816f3669b701100dcf0f12773a2823ac91b10b19b6b7c875cf721b63276d555037405759b1b0098246890d88bb0299b92ec7a7a79ef87caedb870f35dbfaf2c22d4b5902418230110805d0fff2247c76355770197c55d8d3a89cc9fae86adad61ed17fdfcc39d5ddd888110804fac05d80f1d3ca9c0dd312cf46caab96347f1eee348a091d1eecb0e1372a1e38",
+ "ticket": {
+  "format": "U2",
+  "level2SignedData": {
+   "level1Data": {
+    "securityProviderNum": 5152,
+    "keyId": 3,
+    "dataSequence": [
+     {
+      "dataFormat": "FCB3",
+      "data": "62020507c285aa08832b8d4a4c96210924a0a0450100180802a08002951a30ea5bdc1a1a5b194252195b1b19589bda5900df8a6fe020891a12420002b57133d8e79c3af0dbe8d5adab1a94d8e6e75d57f0c000034000034015f336010032",
+      "decoded": {
+       "issuingDetail": {
+        "securityProviderNum": 5152,
+        "issuingYear": 2026,
+        "issuingDay": 46,
+        "issuingTime": 642,
+        "specimen": false,
+        "securePaperTicket": false,
+        "activated": true,
+        "currency": "EUR",
+        "currencyFract": 2,
+        "extension": {
+         "extensionId": "+FRII1",
+         "extensionData": "49250502280800c0"
+        },
+        "intercodeIssuing": {
+         "intercodeVersion": 1,
+         "intercodeInstanciation": 1,
+         "networkId": "250502",
+         "productRetailer": {
+          "retailGeneratorId": 2,
+          "retailerId": 3
+         },
+         "extensionId": "+FRII1"
+        }
+       },
+       "travelerDetail": {
+        "traveler": [
+         {
+          "firstName": "Théophile",
+          "lastName": "Helleboid",
+          "customerIdNum": 8268223,
+          "ticketHolder": true
+         }
+        ]
+       },
+       "transportDocument": [
+        {
+         "ticket": {
+          "key": "openTicket",
+          "value": {
+           "referenceIA5": "Ub3l9sCWC7hjk51TS1fsW",
+           "productIdNum": 22012,
+           "returnIncluded": false,
+           "stationCodeTable": "localCarrierStationCodeTable",
+           "fromStationNum": 14,
+           "toStationNum": 14,
+           "validRegion": [],
+           "validFromDay": 0,
+           "validFromTime": 702,
+           "validUntilDay": 0,
+           "validUntilTime": 822,
+           "classCode": "second",
+           "carrierNum": [
+            26
+           ]
+          }
+         }
+        }
+       ]
+      }
+     }
+    ],
+    "level1KeyAlg": "1.2.840.10045.3.1.7",
+    "level2KeyAlg": "1.2.840.10045.3.1.7",
+    "level1SigningAlg": "1.2.840.10045.4.3.2",
+    "level2SigningAlg": "1.2.840.10045.4.3.2",
+    "level2PublicKey": "038df3eebcafdd27b13c53cebcf13e7ff464420d812f33e5aa53b68a878138b714",
+    "endOfValidityYear": 2026,
+    "endOfValidityDay": 47,
+    "endOfValidityTime": 642,
+    "validityDuration": 120
+   },
+   "level1Signature": "304402201d67b4f4ca20272ede0e88ea0d276725f91c2906680688ea4e418d02de6cd36e02201b9e1e24ee74504759236216336d6f90eb9ee436c64edaaaa06e80aeb3636013",
+   "level2Data": {
+    "dataFormat": "FDC1",
+    "data": "60533725d8f4f4f3df0f95db70e1e6bb7f5e5845a96b20",
+    "decoded": {
+     "dynamicContentMobileAppId": "fr.cityway.maas.oura",
+     "dynamicContentTimeStamp": {
+      "day": 46,
+      "time": 38578
+     }
+    }
+   }
+  },
+  "level2Signature": "3046022100ba1ffe448f8ec6aaee032f8abb1a7513993f5d0d5b5ac3da2ffbf9873abbbb110221009f580bb01e3a795381ba6259e8d95572c68fe3ddc6914123a3dd961c26e543c7"
+ },
+ "issuingTime": 1771152120,
+ "endOfValidityTime": 1771238520,
+ "dynamicContentTime": 1771152178,
+ "openTicketValidityWindow": {
+  "validFrom": 1771155720,
+  "validUntil": 1771162920
+ },
+ "signedBytes": {
+  "level1": "bff283e000301048d0e1335e62020507c285aa08832b8d4a4c96210924a0a0450100180802a08002951a30ea5bdc1a1a5b194252195b1b19589bda5900df8a6fe020891a12420002b57133d8e79c3af0dbe8d5adab1a94d8e6e75d57f0c000034000034015f336010032082a8648ce3d030107082a8648ce3d030107082a8648ce3d040302082a8648ce3d04030221038df3eebcafdd27b13c53cebcf13e7ff464420d812f33e5aa53b68a878138b7140a17282077",
+  "level2": "effca0f8000c041234384cd798808141f0a16a8220cae35293258842492828114040060200a82000a5468c3a96f7068696c650948656c6c65626f6964037e29bf808224684908000ad5c4cf639e70ebc36fa356b6ac6a53639b9d755fc300000d00000d0057ccd80400c820aa192338f40c041c20aa192338f40c041c20aa192338f4100c0820aa192338f4100c08840e37cfbaf2bf749ec4f14f3af3c4f9ffd191083604bccf96a94eda2a1e04e2dc50285ca081dd18c1100880759ed3d328809cbb783a23a8349d9c97e470a419a01a23a93906340b79b34db808806e787893b9d1411d648d8858cdb5be43ae7b90db193b6aaa81ba02bacd8d804c1234486c45d814cdc9763d3d3cf7c3e576dc3879aedfd796116a5ac80"
+ },
+ "level2Verification": {
+  "valid": true,
+  "error": null,
+  "algorithm": "ECDSA P-256 with SHA-256"
+ },
+ "level1Verification": null,
+ "level1WithForeignKey": {
+  "valid": false,
+  "error": "Level 1 signature verification failed (ECDSA P-256 with SHA-256)",
+  "algorithm": "ECDSA P-256 with SHA-256",
+  "publicKey": "308201b330820158a0030201020206019c2429ffa4300a06082a8648ce3d0403023060311a301806035504030c11313138372d30303031302028534e434629310b300906035504061302465231173015060355040a0c0e534e434620566f79616765757273310c300a06035504080c03494446310e300c06035504070c055061726973301e170d3236303431343232303030305a170d3238303431343231353935395a3060311a301806035504030c11313138372d30303031302028534e434629310b300906035504061302465231173015060355040a0c0e534e434620566f79616765757273310c300a06035504080c03494446310e300c06035504070c0550617269733059301306072a8648ce3d020106082a8648ce3d030107034200045e2467e345e4ec94ceff72c76cd505abf0031ac557a57a252ef087fd21bd2957841fef5a408f727473623f19f3c31e746a0c75d7245eac5ea307e6dae1b3538d300a06082a8648ce3d04030203490030460221009294856c0d7ca1c286eca70aec07beefbd499779fbb68909275f1f9485f8284b022100c0b00eb6a69f9d1777880a2174fc1df0ea8eb1b2e148ecd9f1a0cd131250c38a"
+ }
+}

@@ -1,0 +1,14 @@
+# build outputs
+/build/
+/build-*/
+/.pio/
+/.deps/
+/fuzz/build/
+/fuzz/findings/
+/fuzz/crashes/
+/examples/*/.pio/
+# node
+node_modules/
+# editors
+.vscode/
+.DS_Store

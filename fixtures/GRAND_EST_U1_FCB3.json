@@ -1,0 +1,138 @@
+{
+ "name": "GRAND_EST_U1_FCB3",
+ "dosipasTsVersion": "4.1.0",
+ "hex": "815563df8e76000100824687099c049390101cec0c51517422fb36ec19c992c4df24942457f101643e8010101262aacc5732617dce1c6e313270d16e66b9732d68d71645ae1b64cab5a6268c3138c2e58b3cd8c010212b00005048c462626066c6ccc85a7068626c5a686a72c65ac270ca605a606cc466686462c66cc2ca7225400490800013b67120500010090040192803328b5ca0a002000080020006001000004154324671e81808384154324671e81808384154324671e82018104154324671e8201812d982c98098303954324671e81008304154324671e81808381a100020271e2edb56938886ef244fcc81bf6e5697aca1a2e6a59e1aa7ee43cb3e26465151f2acf79d9312c632989a2d5c48238279ad1c0118c7e4668bc17a70cc6d4e4a3982281103e3be4fe0e624718807fff3510946c752d00f4e835c795a9ad84e4ff0712f55e8110804e93751b844b825e4970e3f4845240b47a32ca9ae8a29e9f8fd83007932014fe8246890d885300b878709390a2a6cf023982281101dd758964d38e56487095e74b9284307b673a3e9bbd671c028f1f8916969472301108074b89dc1b249e15a958e0b1a4f7b07f4c1ec4d64a8e8f96bc17abe3bdd54c9d300",
+ "ticket": {
+  "format": "U1",
+  "level2SignedData": {
+   "level1Data": {
+    "securityProviderNum": 3703,
+    "keyId": 2,
+    "dataSequence": [
+     {
+      "dataFormat": "FCB3",
+      "data": "7202039d818a2a2e845f66dd833932589be492848afe202c87d00202024c55598ae64c2fb9c38dc6264e1a2dccd72e65ad1ae2c8b5c36c9956b4c4d18627185cb1679b1802042560000a09188c4c4c0cd8d9990b4e0d0c4d8b4d0d4e58cb584e194c0b4c0d988ccd0c8c58cd98594e44a8009210000276ce240a000201200803250066516b941400400010004000c0020000",
+      "decoded": {
+       "issuingDetail": {
+        "securityProviderNum": 3703,
+        "issuingYear": 2022,
+        "issuingDay": 82,
+        "issuingTime": 651,
+        "specimen": true,
+        "securePaperTicket": false,
+        "activated": true,
+        "currency": "EUR",
+        "currencyFract": 2,
+        "extension": {
+         "extensionId": "_3703II1",
+         "extensionData": "c9250915fc40590fa004040498aab315cc985f73871b8c4c9c345b99ae5ccb5a35c5916b86d932ad6989a30c4e30b962cf363004084ac0"
+        },
+        "intercodeIssuing": {
+         "intercodeVersion": 1,
+         "intercodeInstanciation": 1,
+         "networkId": "250915",
+         "productRetailer": {
+          "retailChannel": "mobileApplication",
+          "retailGeneratorId": 1,
+          "retailServerId": 100,
+          "retailerId": 1000,
+          "retailPointId": 1
+         },
+         "extensionId": "_3703II1"
+        }
+       },
+       "travelerDetail": {},
+       "transportDocument": [
+        {
+         "token": {
+          "token": "62313130336366642d383431362d343539632d613865302d303662333432316336616539"
+         },
+         "ticket": {
+          "key": "openTicket",
+          "value": {
+           "referenceNum": 30414,
+           "productOwnerNum": 4614,
+           "productIdNum": 1,
+           "returnIncluded": false,
+           "stationCodeTable": "stationUIC",
+           "validRegion": [
+            {
+             "key": "zones",
+             "value": {
+              "stationCodeTable": "stationUIC",
+              "city": 2424934
+             }
+            }
+           ],
+           "validFromDay": 0,
+           "validFromTime": 651,
+           "validUntilDay": 0,
+           "validUntilTime": 741,
+           "classCode": "second",
+           "carrierNum": [
+            9,
+            2,
+            3,
+            4,
+            5
+           ]
+          }
+         }
+        }
+       ],
+       "controlDetail": {
+        "identificationByIdCard": false,
+        "identificationByPassportId": false,
+        "passportValidationRequired": false,
+        "onlineValidationRequired": false,
+        "ageCheckRequired": false,
+        "reductionCardCheckRequired": false
+       }
+      }
+     }
+    ],
+    "level1KeyAlg": "1.2.840.10045.3.1.7",
+    "level2KeyAlg": "1.2.840.10045.3.1.7",
+    "level1SigningAlg": "1.2.840.10045.4.3.2",
+    "level2SigningAlg": "1.2.840.10045.4.3.2",
+    "level2PublicKey": "3059301306072a8648ce3d020106082a8648ce3d0301070342000404e3c5db6ad27110dde489f99037edcad2f594345cd4b3c354fdc87967c4c8ca2a3e559ef3b26258c6531345ab8904704f35a3802318fc8cd1782f4e198da9c9"
+   },
+   "level1Signature": "304502207c77c9fc1cc48e3100fffe6a2128d8ea5a01e9d06b8f2b535b09c9fe0e25eabd0221009d26ea37089704bc92e1c7e908a48168f4659535d1453d3f1fb0600f264029fd",
+   "level2Data": {
+    "dataFormat": "FDC1",
+    "data": "60170f0e12721454d9e0",
+    "decoded": {
+     "dynamicContentMobileAppId": "appId",
+     "dynamicContentTimeStamp": {
+      "day": 82,
+      "time": 42703
+     }
+    }
+   }
+  },
+  "level2Signature": "304502203baeb12c9a71cac90e12bce97250860f6ce747d377ace38051e3f122d2d28e46022100e9713b836493c2b52b1c16349ef60fe983d89ac951d1f2d782f57c77baa993a6"
+ },
+ "issuingTime": 1648032660,
+ "endOfValidityTime": null,
+ "dynamicContentTime": 1648036303,
+ "openTicketValidityWindow": {
+  "validFrom": 1648032660,
+  "validUntil": 1648038060
+ },
+ "signedBytes": {
+  "level1": "bf1cec000201048d0e13380927202039d818a2a2e845f66dd833932589be492848afe202c87d00202024c55598ae64c2fb9c38dc6264e1a2dccd72e65ad1ae2c8b5c36c9956b4c4d18627185cb1679b1802042560000a09188c4c4c0cd8d9990b4e0d0c4d8b4d0d4e58cb584e194c0b4c0d988ccd0c8c58cd98594e44a8009210000276ce240a000201200803250066516b941400400010004000c0020000082a8648ce3d030107082a8648ce3d030107082a8648ce3d040302082a8648ce3d0403025b3059301306072a8648ce3d020106082a8648ce3d0301070342000404e3c5db6ad27110dde489f99037edcad2f594345cd4b3c354fdc87967c4c8ca2a3e559ef3b26258c6531345ab8904704f35a3802318fc8cd1782f4e198da9c90",
+  "level2": "efc73b00008041234384ce0249c8080e760628a8ba117d9b760ce4c9626f924a122bf880b21f400808093155662b9930bee70e3718993868b7335cb996b46b8b22d70db2655ad31346189c6172c59e6c600810958000282462313130336366642d383431362d343539632d613865302d30366233343231633661653912a00248400009db38902800080480200c94019945ae5050010000400100030008000020aa192338f40c041c20aa192338f40c041c20aa192338f4100c0820aa192338f4100c096cc164c04c181caa192338f408041820aa192338f40c041c0d080010138f176dab49c443779227e640dfb72b4bd650d17352cf0d53f721e59f132328a8f9567bcec98963194c4d16ae2411c13cd68e008c63f23345e0bd386636a7251cc1140881f1df27f0731238c403fff9a884a363a96807a741ae3cad4d6c2727f83897aaf4088402749ba8dc225c12f24b871fa4229205a3d19654d74514f4fc7ec1803c9900a7f41234486c429805c3c3849c8515367800"
+ },
+ "level2Verification": {
+  "valid": true,
+  "error": null,
+  "algorithm": "ECDSA P-256 with SHA-256"
+ },
+ "level1Verification": null,
+ "level1WithForeignKey": {
+  "valid": false,
+  "error": "Level 1 signature verification failed (ECDSA P-256 with SHA-256)",
+  "algorithm": "ECDSA P-256 with SHA-256",
+  "publicKey": "308201b330820158a0030201020206019c2429ffa4300a06082a8648ce3d0403023060311a301806035504030c11313138372d30303031302028534e434629310b300906035504061302465231173015060355040a0c0e534e434620566f79616765757273310c300a06035504080c03494446310e300c06035504070c055061726973301e170d3236303431343232303030305a170d3238303431343231353935395a3060311a301806035504030c11313138372d30303031302028534e434629310b300906035504061302465231173015060355040a0c0e534e434620566f79616765757273310c300a06035504080c03494446310e300c06035504070c0550617269733059301306072a8648ce3d020106082a8648ce3d030107034200045e2467e345e4ec94ceff72c76cd505abf0031ac557a57a252ef087fd21bd2957841fef5a408f727473623f19f3c31e746a0c75d7245eac5ea307e6dae1b3538d300a06082a8648ce3d04030203490030460221009294856c0d7ca1c286eca70aec07beefbd499779fbb68909275f1f9485f8284b022100c0b00eb6a69f9d1777880a2174fc1df0ea8eb1b2e148ecd9f1a0cd131250c38a"
+ }
+}

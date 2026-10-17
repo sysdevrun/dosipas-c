@@ -1,0 +1,37 @@
+{
+  "name": "dosipas-c",
+  "version": "0.1.0",
+  "description": "Decode and verify DOSIPAS tickets (UIC barcodes with Intercode 6 extensions) on ESP32 and desktop hosts. Table-driven ASN.1 UPER decoder generated from the dosipas-ts 4.1.0 schemas, caller-provided arena, no malloc, mbedTLS ECDSA verification.",
+  "keywords": ["uic", "barcode", "dosipas", "intercode6", "rail", "ticket", "asn1", "uper", "aztec", "esp32"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sysdevrun/dosipas-c.git"
+  },
+  "authors": [
+    {
+      "name": "Théophile Helleboid",
+      "email": "contact@sys-dev-run.fr",
+      "maintainer": true
+    }
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/sysdevrun/dosipas-c",
+  "frameworks": ["arduino", "espidf"],
+  "platforms": ["espressif32", "native"],
+  "headers": ["dosipas.h", "dosipas_json.h", "dosipas_verify.h", "dosipas_summary.h", "DosipasDecoder.h"],
+  "examples": [
+    {
+      "name": "GM69ProDecode",
+      "base": "examples/GM69ProDecode",
+      "files": ["GM69ProDecode.ino", "README.md"]
+    }
+  ],
+  "export": {
+    "include": ["src", "include", "examples", "library.json", "library.properties", "idf_component.yml", "CMakeLists.txt", "LICENSE", "README.md"]
+  },
+  "build": {
+    "srcDir": "src",
+    "includeDir": "src",
+    "flags": ["-DDOSIPAS_WITH_MBEDTLS=1"]
+  }
+}

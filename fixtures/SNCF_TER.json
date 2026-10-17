@@ -1,0 +1,153 @@
+{
+ "name": "SNCF_TER",
+ "dosipasTsVersion": "4.1.0",
+ "hex": "01556550004a2000000824687099c04a390100944142a84e4195c6a5264b11d492509158c00814182618330404383a14fb0b5aae64b9cad934a4d30004015038012a8908a9ea09092988a12908a98988a849e9288b172808244005008d08201a0f999b302808410008802144cc44010a268404000c32c350045a0b80080010120000100a0062a30b934b3102737b936b0b6045f62c5c37a751883186a8c4001040400000171816010a3d38d26cd5ef910257206b6e96ffa56d986faf22010a3342b79c99cb27c12f8e412ed4a52f1c347ff32480",
+ "ticket": {
+  "format": "U2",
+  "level2SignedData": {
+   "level1Data": {
+    "securityProviderNum": 1187,
+    "keyId": 0,
+    "dataSequence": [
+     {
+      "dataFormat": "FCB3",
+      "data": "720201288285509c832b8d4a4c9623a924a122b1801028304c30660808707429f616b55cc97395b26949a6000802a0700255121153d4121253114252115313115093d251162e501048800a011a1040341f3336605010820011004289988802144d080800186586a008b41700100020240000201400c5461726966204e6f726d616c08bec58b86f4ea310630d5188002080800000",
+      "decoded": {
+       "issuingDetail": {
+        "securityProviderNum": 1187,
+        "issuingYear": 2026,
+        "issuingDay": 43,
+        "issuingTime": 1063,
+        "specimen": false,
+        "securePaperTicket": false,
+        "activated": true,
+        "currency": "EUR",
+        "currencyFract": 2,
+        "extension": {
+         "extensionId": "+FRII1",
+         "extensionData": "492509158c00814182618330404383a14fb0b5aae64b9cad934a4d3000"
+        },
+        "intercodeIssuing": {
+         "intercodeVersion": 1,
+         "intercodeInstanciation": 1,
+         "networkId": "250915",
+         "productRetailer": {
+          "retailerId": 2,
+          "retailPointId": 25929583809
+         },
+         "extensionId": "+FRII1"
+        }
+       },
+       "travelerDetail": {
+        "traveler": [
+         {
+          "firstName": "THEOPHILE",
+          "lastName": "HELLEBOID",
+          "yearOfBirth": 1989,
+          "monthOfBirth": 12,
+          "dayOfBirthInMonth": 19,
+          "ticketHolder": true
+         }
+        ]
+       },
+       "transportDocument": [
+        {
+         "ticket": {
+          "key": "openTicket",
+          "value": {
+           "referenceNum": 54653747,
+           "productIdNum": 26117,
+           "returnIncluded": false,
+           "stationCodeTable": "stationUIC",
+           "validRegion": [
+            {
+             "key": "viaStations",
+             "value": {
+              "stationCodeTable": "stationUIC",
+              "route": [
+               {
+                "stationCodeTable": "stationUIC",
+                "stationNum": 8721202,
+                "border": false
+               },
+               {
+                "stationCodeTable": "stationUIC",
+                "stationNum": 8721219,
+                "border": false
+               }
+              ],
+              "border": false
+             }
+            },
+            {
+             "key": "trainLink",
+             "value": {
+              "trainNum": 831700,
+              "travelDate": 1,
+              "departureTime": 360
+             }
+            }
+           ],
+           "validFromDay": 1,
+           "validUntilDay": 0,
+           "classCode": "second",
+           "carrierNum": [
+            2
+           ],
+           "tariffs": [
+            {
+             "numberOfPassengers": 1,
+             "passengerType": "adult",
+             "restrictedToCountryOfResidence": false
+            }
+           ],
+           "price": 320,
+           "infoText": "Tarif Normal",
+           "extension": {
+            "extensionId": "_1187ST1",
+            "extensionData": "30d518800208"
+           }
+          }
+         }
+        }
+       ],
+       "controlDetail": {
+        "identificationByIdCard": false,
+        "identificationByPassportId": false,
+        "passportValidationRequired": false,
+        "onlineValidationRequired": false,
+        "ageCheckRequired": false,
+        "reductionCardCheckRequired": false,
+        "infoText": ""
+       }
+      }
+     }
+    ]
+   },
+   "level1Signature": "302c02147a71a4d9abdf2204ae40d6dd2dff4adb30df5e44021466856f3933964f825f1c825da94a5e3868ffe649"
+  }
+ },
+ "issuingTime": 1770918180,
+ "endOfValidityTime": null,
+ "dynamicContentTime": null,
+ "openTicketValidityWindow": {
+  "validFrom": 1770940800,
+  "validUntil": 1771027140
+ },
+ "signedBytes": {
+  "level1": "a000944000001048d0e1338094720201288285509c832b8d4a4c9623a924a122b1801028304c30660808707429f616b55cc97395b26949a6000802a0700255121153d4121253114252115313115093d251162e501048800a011a1040341f3336605010820011004289988802144d080800186586a008b41700100020240000201400c5461726966204e6f726d616c08bec58b86f4ea310630d5188002080800000",
+  "level2": "a80025100000041234384ce0251c80804a20a1542720cae352932588ea492848ac60040a0c130c1982021c1d0a7d85ad57325ce56c9a5269800200a81c0095448454f5048494c450948454c4c45424f494458b9404122002804684100d07cccd9814042080044010a26622008513420200061961a8022d05c0040008090000080500315185c9a5988139bdc9b585b022fb162e1bd3a8c418c354620008202000000b8c0b00851e9c69366af7c8812b9035b74b7fd2b6cc37d791008519a15bce4ce593e097c720976a52978e1a3ff99240"
+ },
+ "level2Verification": {
+  "valid": false,
+  "error": "Missing level 2 signature",
+  "algorithm": null
+ },
+ "level1Verification": null,
+ "level1WithForeignKey": {
+  "valid": false,
+  "error": "Missing level 1 signing algorithm: the barcode has no level1SigningAlg OID and no signingAlg was configured.",
+  "algorithm": null,
+  "publicKey": "308201b330820158a0030201020206019c2429ffa4300a06082a8648ce3d0403023060311a301806035504030c11313138372d30303031302028534e434629310b300906035504061302465231173015060355040a0c0e534e434620566f79616765757273310c300a06035504080c03494446310e300c06035504070c055061726973301e170d3236303431343232303030305a170d3238303431343231353935395a3060311a301806035504030c11313138372d30303031302028534e434629310b300906035504061302465231173015060355040a0c0e534e434620566f79616765757273310c300a06035504080c03494446310e300c06035504070c0550617269733059301306072a8648ce3d020106082a8648ce3d030107034200045e2467e345e4ec94ceff72c76cd505abf0031ac557a57a252ef087fd21bd2957841fef5a408f727473623f19f3c31e746a0c75d7245eac5ea307e6dae1b3538d300a06082a8648ce3d04030203490030460221009294856c0d7ca1c286eca70aec07beefbd499779fbb68909275f1f9485f8284b022100c0b00eb6a69f9d1777880a2174fc1df0ea8eb1b2e148ecd9f1a0cd131250c38a"
+ }
+}
