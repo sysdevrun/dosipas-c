@@ -12,3 +12,5 @@ node_modules/
 # editors
 .vscode/
 .DS_Store
+/fuzz/corpus/*
+!/fuzz/corpus/*.bin
