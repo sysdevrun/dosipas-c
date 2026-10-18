@@ -559,3 +559,21 @@ dosipas_err_t dosipas_verify_level1(const uint8_t *payload, size_t len, const do
     return verify_level(1, payload, len, t, t->level1Signature, key->publicKey, key->publicKey_len, l1->level1SigningAlg,
                         l1->level1KeyAlg, key->signingAlg, key->keyAlg, l1->bit_offset, l1->bit_length, scratch, out);
 }
+
+const dosipas_level1_key_t *dosipas_level1_key_lookup(const dosipas_level1_key_entry_t *entries, size_t count,
+                                                      const dosipas_ticket_t *t) {
+    if (!entries || !t) return NULL;
+    const dosipas_level1_data_t *l1 = &t->level1Data;
+    for (size_t i = 0; i < count; i++) {
+        const dosipas_level1_key_entry_t *e = &entries[i];
+        bool issuer_ok = false;
+        if (e->securityProviderNum > 0 && l1->has_securityProviderNum && l1->securityProviderNum == e->securityProviderNum)
+            issuer_ok = true;
+        if (e->securityProviderIA5 && l1->securityProviderIA5 && strcmp(e->securityProviderIA5, l1->securityProviderIA5) == 0)
+            issuer_ok = true;
+        if (!issuer_ok) continue;
+        if (e->keyId >= 0 && !(l1->has_keyId && l1->keyId == e->keyId)) continue;
+        return &e->key;
+    }
+    return NULL;
+}

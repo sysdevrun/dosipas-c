@@ -82,6 +82,15 @@
   "algorithm": null
  },
  "level1Verification": null,
+ "level1WithConfiguredKey": {
+  "valid": true,
+  "error": null,
+  "algorithm": "ECDSA P-256 with SHA-256",
+  "algorithmSource": "configured",
+  "publicKey": "04dd0a600b709e5ea760b439a9a27a3d968bd30721d9d05cf85c67dc190ad973c7f1d78477bd554be4e3326c17e31686e8203b4634f70a75bf3a838821ba947c36",
+  "keyAlg": "1.2.840.10045.3.1.7",
+  "signingAlg": "1.2.840.10045.4.3.2"
+ },
  "level1WithForeignKey": {
   "valid": false,
   "error": "Missing level 1 signing algorithm: the barcode has no level1SigningAlg OID and no signingAlg was configured.",

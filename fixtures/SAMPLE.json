@@ -125,6 +125,7 @@
   "algorithm": "ECDSA P-256 with SHA-256"
  },
  "level1Verification": null,
+ "level1WithConfiguredKey": null,
  "level1WithForeignKey": {
   "valid": false,
   "error": "Missing level 1 signing algorithm: the barcode has no level1SigningAlg OID and no signingAlg was configured.",

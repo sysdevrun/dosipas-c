@@ -31,6 +31,12 @@ extern "C" {
 int dosipas_summary(const dosipas_ticket_t *ticket, const dosipas_verify_result_t *level2,
                     char lines[][DOSIPAS_SUMMARY_LINE_SIZE], int max_lines);
 
+/* Same, with the level 1 result too (NULL when no key was available). The
+ * last lines then read "L1 signature VALID/INVALID" and, when the barcode has
+ * one, "L2 signature VALID/INVALID". */
+int dosipas_summary_ex(const dosipas_ticket_t *ticket, const dosipas_verify_result_t *level1,
+                       const dosipas_verify_result_t *level2, char lines[][DOSIPAS_SUMMARY_LINE_SIZE], int max_lines);
+
 /* Format Unix seconds as "YYYY-MM-DD HH:MMZ" (18 chars incl. NUL) into out. */
 void dosipas_format_utc(int64_t unix_seconds, char out[18]);
 

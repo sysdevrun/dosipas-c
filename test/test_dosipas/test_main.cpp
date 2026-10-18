@@ -449,6 +449,36 @@ static void test_verify_level1(void) {
     }
     TEST_ASSERT_TRUE_MESSAGE(with_key >= 2, "expected at least two fixtures with a registry key");
 
+    /* Issuer "IWN8" (Car Jaune): key recovered by dosipas-ts, OIDs supplied by the caller. */
+    int configured = 0;
+    for (size_t i = 0; i < FIXTURE_COUNT; i++) {
+        tj_value_t *g = golden(i);
+        const tj_value_t *exp = tj_get(g, "level1WithConfiguredKey");
+        if (exp && exp->kind == TJ_OBJECT) {
+            dosipas_ticket_t *t = decode_fixture(i);
+            size_t klen = hex_to_bytes(tj_get(exp, "publicKey")->str, key, sizeof key);
+            dosipas_level1_key_entry_t table[2] = {
+                {1187, NULL, 1, {key, klen, NULL, NULL}}, /* wrong issuer: must not match */
+                {0, "IWN8", 1, {key, klen, tj_get(exp, "keyAlg")->str, tj_get(exp, "signingAlg")->str}},
+            };
+            const dosipas_level1_key_t *km = dosipas_level1_key_lookup(table, 2, t);
+            TEST_ASSERT_NOT_NULL_MESSAGE(km, FIXTURES[i].name);
+            TEST_ASSERT_EQUAL_PTR(&table[1].key, km);
+            dosipas_verify_result_t r;
+            TEST_ASSERT_EQUAL(DOSIPAS_OK, dosipas_verify_level1(FIXTURES[i].payload, FIXTURES[i].payload_len, t, km, &g_arena, &r));
+            TEST_ASSERT_EQUAL_MESSAGE(tj_get(exp, "valid")->b, r.valid, FIXTURES[i].name);
+            TEST_ASSERT_EQUAL_STRING(tj_get(exp, "algorithm")->str, r.algorithm);
+            TEST_ASSERT_EQUAL(DOSIPAS_ALG_SOURCE_CONFIGURED, r.algorithmSource);
+            char lines[DOSIPAS_SUMMARY_MAX_LINES][DOSIPAS_SUMMARY_LINE_SIZE];
+            int n = dosipas_summary_ex(t, &r, NULL, lines, DOSIPAS_SUMMARY_MAX_LINES);
+            TEST_ASSERT_EQUAL_STRING(r.valid ? "L1 signature VALID" : "L1 signature INVALID", lines[n - 1]);
+            TEST_ASSERT_NULL(dosipas_level1_key_lookup(table, 1, t));
+            configured++;
+        }
+        tj_free(g);
+    }
+    TEST_ASSERT_EQUAL_MESSAGE(6, configured, "six Car Jaune tickets expected");
+
     /* Caller-supplied OIDs for a barcode without them (Car Jaune), and the mismatch rule. */
     for (size_t i = 0; i < FIXTURE_COUNT; i++) {
         if (strcmp(FIXTURES[i].name, "CAR_JAUNE") != 0) continue;

@@ -108,6 +108,16 @@ for (const [name, h] of fixtures) {
   const own = ts.findKeyInXml(keysXml, extracted.key);
   const l1 = own ? await ts.verifyLevel1Signature(bytes, own) : null;
   const l1foreign = await ts.verifyLevel1Signature(bytes, foreignKey);
+  // Issuers that identify themselves with an IA5 string are not in the UIC registry; dosipas-ts
+  // ships the recovered Car Jaune ("IWN8") key with the OIDs the barcode omits.
+  let l1configured = null;
+  const cj = ts.CAR_JAUNE_SIGNATURES;
+  if (extracted.key.securityProviderIA5 === cj.securityProviderIA5 && extracted.key.keyId === cj.keyId) {
+    const material = { publicKey: Buffer.from(cj.level1PublicKeyHex, 'hex'), keyAlg: cj.level1KeyAlg, signingAlg: cj.level1SigningAlg };
+    const r = await ts.verifyLevel1Signature(bytes, material);
+    l1configured = { valid: r.valid, error: r.error ?? null, algorithm: r.algorithm ?? null, algorithmSource: r.algorithmSource ?? null,
+      publicKey: cj.level1PublicKeyHex, keyAlg: cj.level1KeyAlg, signingAlg: cj.level1SigningAlg };
+  }
   const golden = {
     name,
     dosipasTsVersion: pkg.version,
@@ -125,6 +135,7 @@ for (const [name, h] of fixtures) {
     level1Verification: l1
       ? { valid: l1.valid, error: l1.error ?? null, algorithm: l1.algorithm ?? null, publicKey: hex(own.publicKey) }
       : null,
+    level1WithConfiguredKey: l1configured,
     level1WithForeignKey: {
       valid: l1foreign.valid,
       error: l1foreign.error ?? null,

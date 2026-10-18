@@ -119,6 +119,11 @@ static bool vint(const dosipas_value_t *seq, const char *name, int64_t *out) {
 
 int dosipas_summary(const dosipas_ticket_t *t, const dosipas_verify_result_t *level2, char lines[][DOSIPAS_SUMMARY_LINE_SIZE],
                     int max_lines) {
+    return dosipas_summary_ex(t, NULL, level2, lines, max_lines);
+}
+
+int dosipas_summary_ex(const dosipas_ticket_t *t, const dosipas_verify_result_t *level1,
+                       const dosipas_verify_result_t *level2, char lines[][DOSIPAS_SUMMARY_LINE_SIZE], int max_lines) {
     sum_t s = {lines, max_lines, 0};
     char buf[128], tbuf[18];
     if (!t || max_lines <= 0) return 0;
@@ -229,10 +234,11 @@ int dosipas_summary(const dosipas_ticket_t *t, const dosipas_verify_result_t *le
         }
     }
 
+    if (level1) add(&s, "", level1->valid ? "L1 signature VALID" : "L1 signature INVALID");
     if (t->level2Signature.ptr && t->level2Signature.len) {
         if (!level2) add(&s, "", "L2 signature not verifiable");
         else add(&s, "", level2->valid ? "L2 signature VALID" : "L2 signature INVALID");
-    } else {
+    } else if (!level1) {
         add(&s, "", "L1 signed, key not checked");
     }
     return s.n;

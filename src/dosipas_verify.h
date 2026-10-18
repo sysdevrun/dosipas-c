@@ -53,6 +53,20 @@ typedef struct dosipas_level1_key {
     const char *signingAlg;   /* NULL = none */
 } dosipas_level1_key_t;
 
+/* One entry of a caller-maintained level 1 key table. An issuer is matched
+ * by securityProviderNum (0 = not set) or securityProviderIA5 (NULL = not set),
+ * plus keyId (-1 = any). */
+typedef struct dosipas_level1_key_entry {
+    int32_t securityProviderNum;
+    const char *securityProviderIA5;
+    int32_t keyId;
+    dosipas_level1_key_t key;
+} dosipas_level1_key_entry_t;
+
+/* Find the key for a ticket's issuer + keyId, or NULL. */
+const dosipas_level1_key_t *dosipas_level1_key_lookup(const dosipas_level1_key_entry_t *entries, size_t count,
+                                                      const dosipas_ticket_t *ticket);
+
 /*
  * Verify the level 2 signature with the public key embedded in the barcode.
  * `payload` must be the bytes `ticket` was decoded from. `scratch` provides

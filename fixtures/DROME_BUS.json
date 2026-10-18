@@ -117,6 +117,7 @@
   "algorithm": "ECDSA P-256 with SHA-256"
  },
  "level1Verification": null,
+ "level1WithConfiguredKey": null,
  "level1WithForeignKey": {
   "valid": false,
   "error": "Level 1 signature verification failed (ECDSA P-256 with SHA-256)",
