@@ -5,10 +5,8 @@ C99, for the ESP32 and for desktop hosts. Reference implementation and source
 of truth for behaviour: [dosipas-ts](https://github.com/sysdevrun/dosipas-ts)
 **4.1.0** (the golden files in `fixtures/` were produced by that version).
 
-Status: host decoding, JSON parity, time helpers, signed bytes, level 1/2
-verification, robustness tests, fuzzing, PlatformIO native tests and the ESP32
-example build are done. The on-device test run (`pio test -e esp32dev`) still
-has to be executed to fill in the ESP32 arena/heap/stack/time table below.
+Status: complete. All test groups pass on the host (ASan+UBSan, mbedTLS 2.28
+and 3.6) and on the ESP32 (`pio test -e esp32dev`, 14/14).
 
 ## Approach
 
@@ -119,10 +117,30 @@ without (the 16 KB arena and the 2 KB payload buffer included).
 Host (Apple M-series, release): decode 1-3 us, JSON 1-3 us, level 2 ECDSA
 verify about 0.8 ms per fixture.
 
-ESP32 decode/JSON/verify times, heap minimum and stack high-water mark per
-fixture: printed by the `metrics` test of `pio test -e esp32dev`; **not yet
-recorded** (board was not connected when the run was attempted). Expect a few
-milliseconds per decode and tens of milliseconds per ECDSA verification.
+ESP32-D0WD-V3 at 240 MHz, Arduino core 2.0.17, `pio test -e esp32dev`
+(`metrics` test; heapmin = minimum free heap during the run, stackHWM =
+`uxTaskGetStackHighWaterMark` of the 8 KB Arduino loop task, i.e. bytes never
+used; arena peaks are smaller than on the host because pointers are 4 bytes):
+
+| Fixture | Payload | Arena peak | Stack never used | Decode | JSON | Level 2 verify |
+|---|---|---|---|---|---|---|
+| CAR_JAUNE (x6) | 154-156 B | 2360-2368 B | 3824 B | 0.35-0.92 ms | 0.37-0.58 ms | no signature |
+| SAMPLE | 307 B | 4088 B | 3824 B | 1.25 ms | 0.88 ms | 216 ms (invalid) |
+| SNCF_TER | 212 B | 4608 B | 3824 B | 1.43 ms | 1.00 ms | no signature |
+| BUS_ARDECHE / BUS_AIN / DROME_BUS | 351-357 B | 4048-4128 B | 3824 B | 0.92-1.39 ms | 0.86-0.98 ms | 409-412 ms |
+| SOLEA | 412 B | 4632 B | 3824 B | 0.82 ms | 0.80 ms | 410 ms |
+| GRAND_EST_U1_FCB3 | 450 B | 4664 B | 3824 B | 1.44 ms | 1.00 ms | 404 ms |
+| CTS | 424 B | 5056 B | 3824 B | 1.01 ms | 0.87 ms | 411 ms |
+
+Minimum free heap during the whole run: 197,748 B (the test suite itself
+mallocs the 16 KB arena, a 16 KB JSON buffer and the parsed goldens). The
+decoder and binder allocate nothing on the heap; mbedTLS allocates its
+bignums during verification and frees them. ECDSA P-256 verification takes
+about 0.41 s on the ESP32 with the core's software bignum; decoding and JSON
+are about a millisecond each.
+
+The first decode of a run is slower (0.9 ms vs 0.35 ms for Car Jaune) while
+the flash cache warms up.
 
 ## Tests
 
@@ -150,10 +168,16 @@ in `src/`, `include/` holds forwarders), `idf_component.yml` + `CMakeLists.txt`
 (ESP-IDF component). Example: `examples/GM69ProDecode` (UART2 RX 33 / TX 32,
 9600 8N1, 4096 B RX buffer, mute then European double-byte charset).
 
-## Remaining work
+## Definition of done
 
-1. Connect the board and run `pio test -e esp32dev`; paste the `metrics` table
-   (arena, heap minimum, stack high-water mark, decode/JSON/verify time) here.
-   The firmware builds (451 KB with the embedded fixtures and goldens).
+- Every dosipas-ts fixture decodes on the host and on the ESP32 to JSON equal
+  to dosipas-ts output: yes (14/14, `golden` group on both).
+- Level 2 signatures verify on the host and on the ESP32 with the same result
+  as dosipas-ts: yes; level 1 too where the registry has the key.
+- Truncated, bit-flipped and fuzzed inputs never crash and pass the sanitizers:
+  yes (host ASan+UBSan, 10.1 million fuzz inputs, same robustness groups on the
+  ESP32).
+- Flash, heap, stack and timing measured and documented: above.
+- The example sketch builds for `esp32dev`: yes.
 
 License: MIT.
