@@ -43,7 +43,8 @@ so sending them at every boot is harmless.
 With PlatformIO, from this directory (the library is picked up from `../..`):
 
 ```
-pio run -e esp32dev
+pio run -e esp32dev            # with signature verification
+pio run -e esp32dev_noverify   # without (about 39 KB less flash)
 pio run -e esp32dev -t upload && pio device monitor
 ```
 
@@ -51,6 +52,8 @@ With the Arduino IDE: install the library (this repository) and open the
 sketch. Board: ESP32 Dev Module.
 
 ## What you get
+
+Illustrative output (timings depend on the ticket):
 
 ```
 ---------------------------------

@@ -5,10 +5,10 @@ C99, for the ESP32 and for desktop hosts. Reference implementation and source
 of truth for behaviour: [dosipas-ts](https://github.com/sysdevrun/dosipas-ts)
 **4.1.0** (the golden files in `fixtures/` were produced by that version).
 
-Status: **work in progress**. Host decoding, JSON parity, time helpers, signed
-bytes, level 1/2 verification and robustness tests are done and green on macOS.
-Not yet done: ESP32 on-device test run with measurements, flash size numbers,
-PlatformIO native test confirmation, fuzz run results. See "Remaining work".
+Status: host decoding, JSON parity, time helpers, signed bytes, level 1/2
+verification, robustness tests, fuzzing, PlatformIO native tests and the ESP32
+example build are done. The on-device test run (`pio test -e esp32dev`) still
+has to be executed to fill in the ESP32 arena/heap/stack/time table below.
 
 ## Approach
 
@@ -72,9 +72,34 @@ accepted in addition to DER (dosipas-ts rejects them); the error text for a
 malformed public key point is more specific than dosipas-ts's generic
 "verification failed". `valid` always matches.
 
-## Measurements (host, macOS arm64; ESP32 numbers still to be taken)
+## Measurements
 
-Arena peak per fixture with the 16 KB recommended arena:
+### Flash (ESP32, Arduino core 2.0.17, `-Os`, `xtensa-esp32-elf-size` on the library objects)
+
+| Object | text bytes |
+|---|---|
+| `dosipas_schema_tables.c` (all schemas) | 20,944 |
+| `dosipas_ticket.c` (flow + typed binding + time helpers) | 9,171 |
+| `dosipas_decode.c` (UPER runtime + arena) | 4,686 |
+| `dosipas_summary.c` | 4,143 |
+| `dosipas_json.c` | 2,445 |
+| **Decoding total (without verification)** | **41,389** |
+| `dosipas_verify.c` (OID rules, DER/key parsing, mbedTLS glue) | 6,742 |
+
+The example sketch firmware is 349,488 bytes with verification and 310,480
+bytes without (`esp32dev_noverify` env), so signature verification costs about
+39 KB of flash in total: the 6.7 KB above plus the mbedTLS bignum/ECP/ECDSA/SHA
+code pulled from the core's precompiled `libmbedcrypto.a` (shared with TLS when
+WiFi is used). The decoder itself is well under the 300 KB target.
+
+For comparison, the asn1c prototype measured at `-Os` for xtensa: FCB3 types
+alone 110 KB text + 59 KB data, header v2 67 KB, runtime 38 KB (PER only) to
+80 KB.
+
+### RAM (arena peak per fixture, host and ESP32 are identical: same allocations)
+
+Recommended arena: 16 KB (`DOSIPAS_RECOMMENDED_ARENA_SIZE`), more than 2x the
+largest fixture.
 
 | Fixture | Payload | Arena peak |
 |---|---|---|
@@ -86,7 +111,18 @@ Arena peak per fixture with the 16 KB recommended arena:
 | SNCF_TER | 212 B | 6040 B |
 | CTS | 424 B | 6328 B |
 
-Host decode 1-3 us, JSON 1-3 us, level 2 verify about 0.8 ms per fixture (release).
+Static RAM of the example firmware: 40,864 B with verification, 40,808 B
+without (the 16 KB arena and the 2 KB payload buffer included).
+
+### Time
+
+Host (Apple M-series, release): decode 1-3 us, JSON 1-3 us, level 2 ECDSA
+verify about 0.8 ms per fixture.
+
+ESP32 decode/JSON/verify times, heap minimum and stack high-water mark per
+fixture: printed by the `metrics` test of `pio test -e esp32dev`; **not yet
+recorded** (board was not connected when the run was attempted). Expect a few
+milliseconds per decode and tens of milliseconds per ECDSA verification.
 
 ## Tests
 
@@ -116,11 +152,8 @@ in `src/`, `include/` holds forwarders), `idf_component.yml` + `CMakeLists.txt`
 
 ## Remaining work
 
-1. Run `pio test -e esp32dev` on the board and record arena/heap/stack/time.
-2. Record ESP32 flash cost: `xtensa-esp32-elf-size` on the library objects of
-   the example build, with and without `dosipas_verify.c`.
-3. Confirm `pio test -e native`, the example build and the fuzz run (they were
-   launched; logs in the session scratchpad were not yet reviewed).
-4. Fill the ESP32 numbers into this README.
+1. Connect the board and run `pio test -e esp32dev`; paste the `metrics` table
+   (arena, heap minimum, stack high-water mark, decode/JSON/verify time) here.
+   The firmware builds (451 KB with the embedded fixtures and goldens).
 
 License: MIT.
