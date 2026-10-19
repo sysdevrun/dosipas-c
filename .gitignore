@@ -14,3 +14,5 @@ node_modules/
 .DS_Store
 /fuzz/corpus/*
 !/fuzz/corpus/*.bin
+fuzz/work/
+fuzz/corpus-gen/

@@ -35,7 +35,10 @@ int LLVMFuzzerTestOneInput(const uint8_t *data, size_t size) {
     }
     if (!t) abort();
     size_t needed = 0;
-    dosipas_json_write(t, json, sizeof json, &needed);
+    /* Short JSON buffers now and then for the truncation paths (snprintf semantics). */
+    size_t jcap = (size > 1 && (data[size - 2] & 7) == 7) ? (size_t)data[size - 2] * 4 : sizeof json;
+    dosipas_json_write(t, json, jcap, &needed);
+    if (jcap && needed < jcap && json[needed] != '\0') abort();
     int64_t v;
     dosipas_issuing_time(t, &v);
     dosipas_end_of_validity_time(t, &v);
