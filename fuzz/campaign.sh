@@ -1,7 +1,7 @@
 #!/bin/sh
 # Long fuzzing campaign on N cores (default 3) until no new branch for STALL_HOURS (default 24).
 #
-#   fuzz/campaign.sh            run in tmux/screen or with nohup; logs to fuzz/work/campaign.log
+#   setsid fuzz/campaign.sh     in its own process group (tmux/screen or nohup); logs to fuzz/work/campaign.log
 #
 # Workers share the corpora in fuzz/work/<target>/ (seeded from fuzz/corpus*/):
 #   1: libFuzzer, cycles fuzz_decode, fuzz_schema, fuzz_decode.m32, fuzz_schema.m32
@@ -20,7 +20,7 @@ CHECK="${CHECK:-7200}"
 STALL_HOURS="${STALL_HOURS:-24}"
 LOG="$W/campaign.log"
 mkdir -p "$W" "$HERE/findings"
-for t in decode schema verify keys; do mkdir -p "$W/$t"; done
+for t in decode schema verify keys; do mkdir -p "$W/$t"; cp -n "$HERE/corpus/$t"/* "$W/$t/" 2>/dev/null; done
 echo "$$" > "$W/campaign.pid"
 log() { echo "$(date -u +%FT%TZ) $*" >> "$LOG"; }
 
@@ -50,7 +50,8 @@ covered() { "$HERE/coverage.sh" "$W" 2>/dev/null | awk '/^TOTAL/ {print $11 - $1
 worker1 & p1=$!
 worker2 & p2=$!
 worker3 & p3=$!
-trap 'kill $p1 $p2 $p3 2>/dev/null; pkill -P $p1; pkill -P $p2; pkill -P $p3; log stopped; exit 0' INT TERM
+# Workers fork fuzzers that fork children: stop the whole process group (run it with setsid).
+trap 'trap - INT TERM; log stopped; kill -TERM 0 2>/dev/null; exit 0' INT TERM
 log "started workers $p1 $p2 $p3 (slot ${SLOT}s, check ${CHECK}s, stall ${STALL_HOURS}h)"
 best=0; best_at=$(date +%s)
 while :; do
