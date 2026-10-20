@@ -23,6 +23,6 @@ echo "building fuzz target with $CLANG"
     "$ROOT"/src/dosipas_decode.c "$ROOT"/src/dosipas_ticket.c "$ROOT"/src/dosipas_json.c \
     "$ROOT"/src/dosipas_summary.c "$ROOT"/src/dosipas_schema_tables.c "$ROOT"/src/dosipas_verify.c \
     "$HERE/fuzz_decode.c" -o "$HERE/build/fuzz_decode"
-echo "running for $SECONDS_MAX s on $HERE/corpus"
+echo "running for $SECONDS_MAX s on $HERE/corpus/decode"
 "$HERE/build/fuzz_decode" -max_total_time="$SECONDS_MAX" -max_len=2048 -artifact_prefix="$HERE/findings/" \
-    "$HERE/corpus" 2>&1 | tail -15
+    "$HERE/corpus/decode" 2>&1 | tail -15

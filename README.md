@@ -152,6 +152,20 @@ pio test -e esp32dev                    # prints arena/heap/stack/time per fixtu
 fuzz/run.sh 120                         # libFuzzer, needs Homebrew LLVM
 ```
 
+Long campaigns (Linux, clang + AFL++, see the headers of the scripts):
+
+```
+cd tools && npm install && cd ..
+node tools/gen_fuzz_corpus.mjs --count 5000  # random valid tickets/values/keys from dosipas-ts 4.1.0
+fuzz/build.sh                                # libFuzzer+ASan+UBSan, i386, AFL++ and coverage builds
+fuzz/campaign.sh                             # 3 workers until no new branch for 24 h
+fuzz/coverage.sh                             # branch coverage of src/ by the corpora, HTML report
+```
+
+Targets: `fuzz_decode` (barcode, JSON, summary, signed bytes), `fuzz_schema` (one UPER value of
+any schema root), `fuzz_verify` (level 1 and 2 verification with a fuzzed level 1 key) and
+`fuzz_keys` (`dosipas_ecdsa_verify`). The generator only makes synthetic tickets.
+
 Groups: golden (JSON equality with the path of the first difference, typed
 view), times, signed, robustness (every truncation length, every bit flip,
 every arena size below the need, bad formats), verify (level 2 on every

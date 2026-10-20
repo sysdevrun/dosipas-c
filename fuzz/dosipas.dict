@@ -1,0 +1,33 @@
+# libFuzzer / AFL++ dictionary for dosipas-c (UPER IA5 strings are 7-bit packed, so the
+# formats appear here both as plain ASCII, for fuzz_verify key blocks, and as the octets
+# the fuzzer can splice into OCTET STRING contents).
+"U1"
+"U2"
+"FCB1"
+"FCB2"
+"FCB3"
+"FDC1"
+"_3703.ID1"
+"_1187.ID1"
+"_3703II1"
+"+FRII1"
+"P-256"
+"P-384"
+"P-521"
+"SHA-256"
+# OIDs, DER contents (ecPublicKey, P-256, P-384, P-521, ecdsa-with-SHA256/384/512)
+"\x2a\x86\x48\xce\x3d\x02\x01"
+"\x2a\x86\x48\xce\x3d\x03\x01\x07"
+"\x2b\x81\x04\x00\x22"
+"\x2b\x81\x04\x00\x23"
+"\x2a\x86\x48\xce\x3d\x04\x03\x02"
+"\x2a\x86\x48\xce\x3d\x04\x03\x03"
+"\x2a\x86\x48\xce\x3d\x04\x03\x04"
+# DER headers
+"\x30\x81"
+"\x30\x82"
+"\x02\x21\x00"
+"\x03\x42\x00\x04"
+"\xa0\x03\x02\x01\x02"
+"\x06\x08"
+"\x06\x05"
